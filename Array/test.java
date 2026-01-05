@@ -1,5 +1,5 @@
 package Array;
-import java.util.*;
+// import java.util.*;
 
 // class test{
 //     public static void main(String args[]){
