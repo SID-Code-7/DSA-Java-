@@ -1,4 +1,4 @@
-package Array;
+package Array.matrix;
 public class spiralMatrix {
     public static void spiral(int matrix[][]){
         int sr=0;
