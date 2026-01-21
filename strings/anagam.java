@@ -14,14 +14,11 @@ public class anagam {
         Arrays.sort(str2arr);
         boolean res = Arrays.equals(str1arr, str2arr);
         if(res == true){
-            System.out.println("yes "+str1+" and "+str2+" are not anagam");
+            System.out.println("yes "+str1+" and "+str2+" are  anagam");
         }
         else{
          System.out.println("No "+str1+" and "+str2+" are not anagam");   
         }
-    }
-    else{
-        System.out.println("No "+str1+" and "+str2+" are anagam");
     }
     }
 }
