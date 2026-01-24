@@ -25,9 +25,23 @@ public class firstOcc {
 
         return isFound;
     }
+
+    // all occ
+    public static void all(int arr[],int key,int i){
+        //base case 
+        if(i==arr.length){
+            return;
+        }
+        if(arr[i] == key){
+            System.out.print(i+" ");
+        }
+        all(arr, key, i+1);
+    }
+
     public static void main(String[] args) {
         int arr[] ={2,2,4,5,6,28,19,2,6};
         System.out.println(first(arr, 6, 0));
         System.out.println(last(arr, 6, 0));
+        all(arr, 6, 0);
     }   
 }
