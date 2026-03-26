@@ -5,7 +5,7 @@ public class substr {
         //base case
         if(i==str.length()){
             if(ans.length()==0){
-                System.out.println("null");
+                System.out.print("null");
             }
             else{
                 System.out.println(ans);
