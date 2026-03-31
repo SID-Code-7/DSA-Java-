@@ -13,7 +13,7 @@ public class substr {
             return;
         }
         //kaam
-        //yes choide
+        //yes choice
         choices(str, ans+str.charAt(i), i+1);
         //no choices 
         choices(str, ans, i+1);
