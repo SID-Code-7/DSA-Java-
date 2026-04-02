@@ -65,3 +65,4 @@ public class practice {
         System.out.print("total ways = "+count);
     }
 }
+
