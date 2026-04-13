@@ -12,11 +12,13 @@ public class LinkedList {
     }
     public static Node head;
     public static Node tail;
+    public static int size;
 
     //addfirst node 
     public void addFirst(int data){
         // creat new node
         Node newnNode = new Node(data);
+        size++;
 
         //is empty
         if(head == null){
@@ -32,6 +34,7 @@ public class LinkedList {
     public void addLast(int data){
         //1.create new node
         Node newNode = new Node(data);
+        size++;
          // if empty
         if(head == null){
             head=tail= newNode;
@@ -43,8 +46,10 @@ public class LinkedList {
     }
     public void add(int idx, int data){
         Node newNode = new Node(data);
+        size++;
         if(idx == 0){
             addFirst(data);
+            return;
         }
         Node temp = head;
         int i=0;
@@ -58,8 +63,84 @@ public class LinkedList {
         temp.next = newNode;
 
     }
+
+    //remove first node
+    public int removeFirst(){
+        if(size == 0){
+            System.out.println("ll is empty");
+            return -1;
+        }
+        else if(size == 1){
+            int val = head.data;
+            head = tail = null;
+            size=0;
+            return val;
+        }
+        int val = head.data;
+        head = head.next;
+        size--;
+        return val;
+    }
+    public int removeLast(){
+        if(size == 0){
+            System.out.println("ll is empty");
+            return -1;
+        }
+        if(size == 1){
+            int val =head.data;
+            head = tail = null;
+            size =0;
+            return val;
+        }
+        
+        Node prev =head;
+        for(int i=0; i<size-2; i++){
+            prev = prev.next;
+        }
+        int value = prev.next.data;
+        prev.next = null;
+        tail = prev;
+        size--;
+        return value;
+    }
+
+    //linear search
+    public int search (int key){
+        Node temp = head;
+        int idx =0;
+        while(temp != null){
+            if(temp.data == key){
+                return idx;
+            }
+            else{
+                temp = temp.next;
+                idx++;
+            }
+        }
+        return -1;
+    }
+
+    // recursive search 
+    public int recSearch(int key, Node head){
+         
+        //base case 
+        if(head == null){
+            return -1;
+        }
+
+        //kaam
+        if(head.data == key){
+            return 0;
+        }
+        int idx = recSearch(key,head.next);
+        if(idx == -1) return -1;
+
+        return idx+1;
+        
+    }
+
      //print 
-     public void print(){
+    public void print(){
         if(head == null){
             System.out.println("null");
             return;
@@ -82,6 +163,12 @@ public class LinkedList {
         // ll.print();
         ll.addLast(4);
         ll.add(2, 9);
+        // System.out.println(size);
+        // ll.removeFirst();
+        // ll.removeLast();
+        System.out.println(ll.search(3));
+        System.out.println(ll.recSearch(3, head));
         ll.print();
+        // System.out.print(size);
     }
 }
